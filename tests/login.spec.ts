@@ -9,4 +9,5 @@ test('User can login', async ({ page }) => {
 
   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
 
+
 });
