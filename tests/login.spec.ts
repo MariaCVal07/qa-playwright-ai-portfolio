@@ -6,4 +6,5 @@ test('User can login', async ({ page }) => {
   await page.goto('/');
   await loginPage.login('standard_user', 'secret_sauce');
   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+
 });
