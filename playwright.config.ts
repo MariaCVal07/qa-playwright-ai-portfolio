@@ -1,4 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+
+
+dotenv.config();
 
 export default defineConfig({
   testDir: './tests',
@@ -9,10 +13,12 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
 
+  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: 'https://www.saucedemo.com',
-    headless: true,
+    /* Base URL to use in actions like `await page.goto('')`. */
+    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
     trace: 'on-first-retry',
+    headless: true,
   },
 
   projects: [
